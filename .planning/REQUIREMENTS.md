@@ -14,9 +14,17 @@
 - [ ] **ENG-05**: Forge route handles malformed JSON from LLM gracefully (retry once, return user-facing error on second failure)
 - [ ] **ENG-06**: Input is capped at 2000 characters and max_tokens is set on every API call to prevent runaway costs
 
+### Preset Selection
+
+- [ ] **PSET-01**: User sees a grid of preset category cards on the hero/landing area (Photo Generation, Video Generation, Game Design, AI Prompt Enhancer, Music Generation, Creative Writing, Business Writing, Code Generation — 8 visible, expandable)
+- [ ] **PSET-02**: Clicking a preset pre-selects that category and optionally pre-fills the input with a contextual placeholder
+- [ ] **PSET-03**: Selected preset is visually highlighted and passed as a hint to the forge engine alongside the user's input
+- [ ] **PSET-04**: User can still type freely without selecting a preset (forge engine auto-detects intent from free text)
+- [ ] **PSET-05**: Presets have icons and short descriptions that communicate what they generate
+
 ### UI
 
-- [ ] **UI-01**: Two-panel layout rendered exactly matching v10 design — left panel (input) stacks above right panel (output) on mobile
+- [ ] **UI-01**: Fully redesigned dark premium UI (not a v10 copy) — built with ui-ux-pro-max skill. Two-panel layout on desktop; single column on mobile.
 - [ ] **UI-02**: Intent badge displays detected category emoji + label after forge
 - [ ] **UI-03**: Score counter animates from 0 to target value for both score_original and score_forged
 - [ ] **UI-04**: Output panel has 4 tabs: PROMPT / NEGATIVE / BOLD / EXPERIMENTAL
@@ -30,8 +38,8 @@
 - [ ] **UI-12**: Tips section displays all tips[] items
 - [ ] **UI-13**: parameters section displays when present with parameters_label
 - [ ] **UI-14**: Brand DNA accordion — expandable panel for brand name, tone, target audience — content appended to forge context
-- [ ] **UI-15**: 12 example chips in header — one per distinct intent category — clicking populates input and triggers forge
-- [ ] **UI-16**: All design tokens applied exactly: bg #030407, surface #070910, card #0B0D16, border #12172A, red #E03020, gold #C88A08, goldBright #F0AA20, green #1E9A5A, text #E2DDD8, muted #384060, DM Sans + JetBrains Mono fonts
+- [ ] **UI-15**: Example chips or quick-start suggestions within or below the preset selector area
+- [ ] **UI-16**: Dark premium design system — base tokens from v10 (bg #030407, DM Sans + JetBrains Mono) as starting point, extended with richer visual hierarchy, gradients, and micro-interactions designed by ui-ux-pro-max
 
 ### Freemium Gating
 
@@ -135,11 +143,9 @@
 | PAY-05 | Phase 3 | Pending |
 
 **Coverage:**
-- v1 requirements: 40 total (ENG×6, UI×16, GATE×6, AUTH×4, PAY×5, INFRA×3)
-- Mapped to phases: 40
-- Unmapped: 0
-
-Note: The original coverage note said "38 total" — the actual count is 40 (UI-01 through UI-16 = 16 requirements, not 14). All 40 are mapped.
+- v1 requirements: 45 total (ENG×6, PSET×5, UI×16, GATE×6, AUTH×4, PAY×5, INFRA×3)
+- Mapped to phases: 40 (PSET-01–05 added after roadmap — Phase 1, TBD traceability)
+- Unmapped: 5 (PSET-01 through PSET-05 — added post-roadmap, assigned to Phase 1)
 
 ---
 *Requirements defined: 2026-03-14*
