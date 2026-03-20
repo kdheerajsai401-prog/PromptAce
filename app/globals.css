@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #12172a;
+  border-radius: 3px;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: #161c2c;
+}
+
+textarea:focus,
+input:focus {
+  border-color: #1c2540 !important;
+  outline: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
