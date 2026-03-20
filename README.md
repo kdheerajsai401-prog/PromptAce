@@ -99,7 +99,7 @@ No prompt engineering knowledge required.
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/promptace.git
+git clone https://github.com/kdheerajsai401-prog/PromptAce.git
 cd promptace
 
 # Install dependencies
