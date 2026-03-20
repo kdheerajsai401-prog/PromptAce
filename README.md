@@ -95,7 +95,7 @@ No prompt engineering knowledge required.
 
 ## Getting Started
 
-> Full setup instructions will be added when Phase 1 is complete.
+> **Note:** The app code ships with Phase 1. Instructions below will work once Phase 1 is complete.
 
 ```bash
 # Clone the repo
@@ -105,13 +105,17 @@ cd promptace
 # Install dependencies
 npm install
 
-# Add your environment variables
+# Set up your environment variables
 cp .env.local.example .env.local
-# Set ANTHROPIC_API_KEY in .env.local
+# Open .env.local and add your ANTHROPIC_API_KEY
+# Get yours free at console.anthropic.com
 
 # Run locally
 npm run dev
+# → Open http://localhost:3000
 ```
+
+The only key needed to run the core forge engine is `ANTHROPIC_API_KEY`. Auth and payment keys are only needed for Phases 2 and 3 — see [`.env.local.example`](.env.local.example) for the full list.
 
 ---
 
