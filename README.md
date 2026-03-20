@@ -43,11 +43,6 @@ No prompt engineering knowledge required.
 - **Copy everything** — Per-section copy buttons + one-click "Copy Everything"
 - **Mobile responsive** — Input panel stacks above output on small screens
 
-### Business Model
-- **3 free forges** — No account needed to start
-- **Auth wall** — Clerk authentication after the free quota
-- **One-time payment** — Stripe Checkout, no subscriptions
-
 ### Security
 - **API key never client-side** — Anthropic key lives server-side only in the forge route
 - **System prompt locked** — Loaded with `server-only` guard, never exposed to the client
@@ -86,9 +81,6 @@ No prompt engineering knowledge required.
 | Language | TypeScript |
 | Styling | Tailwind CSS |
 | AI | Anthropic API — `claude-sonnet-4-6` |
-| Auth | Clerk |
-| Database | Neon + Drizzle ORM |
-| Payments | Stripe (one-time checkout) |
 | Deployment | Vercel |
 
 ---
@@ -121,15 +113,11 @@ The only key needed to run the core forge engine is `ANTHROPIC_API_KEY`. Auth an
 
 ## Project Status
 
-This project is being built in 3 phases:
-
 | Phase | Description | Status |
 |-------|-------------|--------|
 | **Phase 1** | Foundation + Core Forge Engine | 🔨 In Progress |
-| **Phase 2** | Freemium Gate + Clerk Auth | ⏳ Planned |
-| **Phase 3** | Stripe Payments | ⏳ Planned |
 
-**Phase 1 goal:** Any visitor can paste plain English, hit Forge, and receive a fully rendered result with intent badge, score animation, 4 output tabs, and copy UX.
+**Goal:** Any visitor can paste plain English, hit Forge, and receive a fully rendered result with intent badge, score animation, 4 output tabs, and copy UX. No login, no limits, completely free.
 
 ---
 

@@ -1,6 +1,7 @@
 # Requirements: PromptForge
 
 **Defined:** 2026-03-14
+**Updated:** 2026-03-20 — removed GATE, AUTH, PAY requirement groups (freemium model dropped)
 **Core Value:** Turn any plain English description into the perfect AI prompt instantly — so anyone can get professional-quality results from AI tools without knowing how to prompt.
 
 ## v1 Requirements
@@ -41,61 +42,31 @@
 - [ ] **UI-15**: Example chips or quick-start suggestions within or below the preset selector area
 - [ ] **UI-16**: Dark premium design system — base tokens from v10 (bg #030407, DM Sans + JetBrains Mono) as starting point, extended with richer visual hierarchy, gradients, and micro-interactions designed by ui-ux-pro-max
 
-### Freemium Gating
-
-- [ ] **GATE-01**: Anonymous visitor receives UUID stored in cookie on first visit
-- [ ] **GATE-02**: Forge usage is tracked server-side in DB keyed by visitor UUID (not localStorage)
-- [ ] **GATE-03**: Usage counter UI shows "X of 3 remaining" proactively on every forge
-- [ ] **GATE-04**: On 4th forge attempt by anonymous user, login/signup modal appears instead of forging
-- [ ] **GATE-05**: Logged-in users on free plan get additional free forges before hitting payment wall
-- [ ] **GATE-06**: Paid users can forge without limit
-
-### Authentication
-
-- [ ] **AUTH-01**: User can sign up with email and password via Clerk
-- [ ] **AUTH-02**: User can log in and session persists across browser refresh
-- [ ] **AUTH-03**: User can log out from any page
-- [ ] **AUTH-04**: Auth state is reflected in the usage counter and gate logic
-
-### Payments
-
-- [ ] **PAY-01**: User can click "Upgrade" and be redirected to Stripe Checkout for one-time payment
-- [ ] **PAY-02**: Stripe webhook handler syncs payment_intent.succeeded event to mark user as paid in DB
-- [ ] **PAY-03**: Webhook handler is idempotent — duplicate events do not double-grant access
-- [ ] **PAY-04**: Paid status is enforced in /api/forge route before processing request
-- [ ] **PAY-05**: Webhook uses raw body (not parsed JSON) for Stripe signature verification
-
 ### Infrastructure
 
 - [ ] **INFRA-01**: Next.js app deploys to Vercel with export const maxDuration = 60 on forge route
-- [ ] **INFRA-02**: All secrets stored in Vercel environment variables (ANTHROPIC_API_KEY, STRIPE_SECRET_KEY, CLERK_SECRET_KEY, etc.)
+- [ ] **INFRA-02**: ANTHROPIC_API_KEY stored in Vercel environment variables
 - [ ] **INFRA-03**: .env.local documented in README with required variable names (no values)
 
-## v2 Requirements
-
-### History
-
-- **HIST-01**: Logged-in user can view list of previous forged prompts
-- **HIST-02**: User can click a history item to re-populate the input field
-- **HIST-03**: User can delete individual history items
+## v2 Requirements (Future — not in scope)
 
 ### Growth
 
 - **GROW-01**: Per-category landing pages (/image-generation, /video-generation, etc.) for SEO
 - **GROW-02**: Rate limiting per IP to prevent API cost abuse
 - **GROW-03**: Admin dashboard showing daily forge volume and cost
-- **GROW-04**: Referral system — share link gives both users extra free forges
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| Multi-model support (GPT, Gemini) | Dilutes focus — PromptForge is about the engine, not model switching |
-| Social features (sharing, ratings) | Community is an anti-feature here; competes on generation quality not curation |
+| Auth / login / accounts | Tool is free and anonymous — no identity needed |
+| Usage gating / freemium limits | Tool is completely free, no limits |
+| Stripe payments | No monetization in v1 |
+| Multi-model support (GPT, Gemini) | Dilutes focus — PromptForge is about the engine |
+| Social features (sharing, ratings) | Not needed for v1 |
 | Team/agency features | Single-user focus for MVP |
-| Image/file uploads to PromptForge | We generate prompts, we don't process media |
-| Subscription billing | One-time payment simpler for MVP; evaluate post-launch |
-| OAuth social login | Email/password sufficient for v1 |
+| Image/file uploads | We generate prompts, we don't process media |
 
 ## Traceability
 
@@ -107,6 +78,11 @@
 | ENG-04 | Phase 1 | Pending |
 | ENG-05 | Phase 1 | Pending |
 | ENG-06 | Phase 1 | Pending |
+| PSET-01 | Phase 1 | Pending |
+| PSET-02 | Phase 1 | Pending |
+| PSET-03 | Phase 1 | Pending |
+| PSET-04 | Phase 1 | Pending |
+| PSET-05 | Phase 1 | Pending |
 | UI-01 | Phase 1 | Pending |
 | UI-02 | Phase 1 | Pending |
 | UI-03 | Phase 1 | Pending |
@@ -126,27 +102,9 @@
 | INFRA-01 | Phase 1 | Pending |
 | INFRA-02 | Phase 1 | Pending |
 | INFRA-03 | Phase 1 | Pending |
-| GATE-01 | Phase 2 | Pending |
-| GATE-02 | Phase 2 | Pending |
-| GATE-03 | Phase 2 | Pending |
-| GATE-04 | Phase 2 | Pending |
-| GATE-05 | Phase 2 | Pending |
-| GATE-06 | Phase 2 | Pending |
-| AUTH-01 | Phase 2 | Pending |
-| AUTH-02 | Phase 2 | Pending |
-| AUTH-03 | Phase 2 | Pending |
-| AUTH-04 | Phase 2 | Pending |
-| PAY-01 | Phase 3 | Pending |
-| PAY-02 | Phase 3 | Pending |
-| PAY-03 | Phase 3 | Pending |
-| PAY-04 | Phase 3 | Pending |
-| PAY-05 | Phase 3 | Pending |
 
-**Coverage:**
-- v1 requirements: 45 total (ENG×6, PSET×5, UI×16, GATE×6, AUTH×4, PAY×5, INFRA×3)
-- Mapped to phases: 40 (PSET-01–05 added after roadmap — Phase 1, TBD traceability)
-- Unmapped: 5 (PSET-01 through PSET-05 — added post-roadmap, assigned to Phase 1)
+**Coverage: 30/30 v1 requirements mapped to Phase 1**
 
 ---
 *Requirements defined: 2026-03-14*
-*Last updated: 2026-03-14 — traceability populated by roadmapper*
+*Last updated: 2026-03-20 — GATE (×6), AUTH (×4), PAY (×5) removed; tool is free and unlimited*
