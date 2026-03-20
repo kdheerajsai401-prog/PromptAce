@@ -11,7 +11,7 @@ async function callAndParse(msg: string): Promise<ForgeResult> {
   const response = await client.messages.create({
     model: "claude-sonnet-4-6",
     max_tokens: 1500,
-    system: SYSTEM,
+    system: [{ type: "text", text: SYSTEM, cache_control: { type: "ephemeral" } }],
     messages: [{ role: "user", content: msg }],
   });
   const raw = response.content.map((b) => (b.type === "text" ? b.text : "")).join("");
